@@ -6,16 +6,16 @@ package prj6a_sparsematrix;
 public class MatrixClass {
 
     /** The matrix data. */
-    int Matrix[][];
+    private int Matrix[][];
     
     /** The number of rows in the matrix. */
-    int rows;
+    private int rows;
     
     /** The number of columns in the matrix. */
-    int columns;
+    private int columns;
     
     /** The name of the matrix. */
-    char name;
+    private char name;
 
     /**
      * Constructs an empty MatrixClass object.
@@ -35,6 +35,18 @@ public class MatrixClass {
         this.rows = row;
         this.columns = col;
         this.name = n;
+    }
+
+    public int getRow(){
+        return rows;
+    }
+
+    public int getColumn(){
+        return columns;
+    }
+
+    public int[][] getMatrix(){
+        return Matrix;
     }
 
     /**

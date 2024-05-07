@@ -10,6 +10,8 @@ public class SparseMatrixClass {
     /** The list containing sparse matrix elements. */
     private ArrayList<SparseMatrixElementClass> theList;
 
+    private int amountOfPrimes_Matrix = 0;
+
     /** 
      * Constructs an empty SparseMatrixClass object.
      */
@@ -23,16 +25,22 @@ public class SparseMatrixClass {
      * @param m The matrix from which prime elements are retrieved.
      */
     public void getSparseArrayPrimes(MatrixClass m) {
-        for (int i = 0; i < m.rows; i++) {
-            for (int j = 0; j < m.columns; j++) {
-                int data = m.Matrix[i][j];
+        for (int i = 0; i < m.getRow(); i++) {
+            for (int j = 0; j < m.getColumn(); j++) {
+                int data = m.getMatrix()[i][j];
 
                 if (isPrime(data)) {
                     SparseMatrixElementClass e = new SparseMatrixElementClass(data, i, j);
                     theList.add(e);
+                    amountOfPrimes_Matrix++;
                 }
             }
         }
+    }
+
+    public void clearData(){
+        theList.clear();
+        amountOfPrimes_Matrix = 0;
     }
 
     /**
@@ -68,6 +76,7 @@ public class SparseMatrixClass {
             }
         }
 
+        s += "\nPrimes Number Amount: " + amountOfPrimes_Matrix;
         return s;
     }
 }
